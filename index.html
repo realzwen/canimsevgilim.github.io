@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İyi ki Doğdun Canım Sevgilim ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ffcce6);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+max-width:520px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+button{
+margin-top:20px;
+padding:15px 28px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4fa3;
+font-size:18px;
+cursor:pointer;
+transition:0.25s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.hidden{display:none}
+
+.cake{
+font-size:120px;
+margin-top:10px;
+}
+
+.candle{
+font-size:45px;
+animation:flicker 1s infinite;
+}
+
+.blown{
+animation:none;
+opacity:0.2;
+}
+
+@keyframes flicker{
+0%{opacity:1}
+50%{opacity:0.4}
+100%{opacity:1}
+}
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+left:0;
+top:0;
+pointer-events:none;
+}
+
+.heart{
+position:absolute;
+color:#ff2f92;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(1)}
+100%{transform:translateY(-10vh) scale(1.6)}
+}
+
+.infinity{
+font-size:120px;
+margin:20px 0;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- romantik müzik -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2a6c1c3c0a.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="page1">
+<div class="card">
+
+<h1>Canım Sevgilim ❤️</h1>
+
+<p>
+Seni tanıdığım günden beri hayatım çok daha güzel oldu.
+Gülüşün, sesin ve varlığın hayatımı aydınlatıyor.
+Bugün dünyanın en tatlı insanının doğum günü.
+</p>
+
+<p>
+İyi ki varsın. Seni gerçekten çok seviyorum.
+</p>
+
+<button onclick="love()">Ben de seni seviyorum</button>
+
+</div>
+</div>
+
+
+<div class="container hidden" id="page2">
+<div class="card">
+
+<h1>🎉 İYİ Kİ DOĞDUN CANIM SEVGİLİM 🎉</h1>
+
+<div class="cake">🎂</div>
+
+<div id="candle" class="candle">🕯️</div>
+
+<p>Muma üflemek için aşağıdaki butona bas ❤️</p>
+
+<button onclick="blowCandle()">Mumu Üfle</button>
+
+</div>
+</div>
+
+
+<div class="container hidden" id="page3">
+<div class="card">
+
+<h1>Sonsuz Aşkımız ♾️</h1>
+
+<div class="infinity">♾️</div>
+
+<p>
+Seninle geçen her an benim için çok değerli.
+Hayatımda olduğun için çok şanslıyım.
+
+Bu site küçük bir şey ama sana olan sevgim
+sonsuz.
+</p>
+
+<h2>Seni sonsuza kadar seveceğim ❤️</h2>
+
+</div>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+
+function love(){
+
+let music=document.getElementById("music");
+music.play();
+
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+
+createHearts();
+
+}
+
+function blowCandle(){
+
+let candle=document.getElementById("candle");
+
+candle.classList.add("blown");
+
+setTimeout(()=>{
+
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+
+createHearts();
+
+},1200);
+
+}
+
+function createHearts(){
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*30+20)+"px";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+
+document.getElementById("hearts").appendChild(heart);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
